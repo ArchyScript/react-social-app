@@ -34,7 +34,6 @@ const Profile = () => {
                             <RightSidebar profile={ true } />
                         </div>
                     </div>
-
                 </div>
             </div>
         </>

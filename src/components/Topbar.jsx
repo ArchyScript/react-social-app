@@ -1,34 +1,24 @@
-import { useState, useEffect } from 'react'
+
 import { MdSearch, MdPerson, MdChat, MdNotifications } from "react-icons/md"
+import { Link } from "react-router-dom"
 
 const Topbar = () => {
-
-    const [randomNumberWithinRange, setRandomNumberWithinRange] = useState(4);
-
-    // generate randon
-    const gnerateRandonNumber = () => {
-        setRandomNumberWithinRange(Math.floor((Math.random() * 10) - 1));
-    }
-
-
-    useEffect(() => {
-        gnerateRandonNumber()
-    }, []);
-
 
     return (
         <div className='h-[3.125rem] w-full bg-[#1877f2] flex justify-between items-center sticky top-0 z-50 '>
             {/* topbar left */ }
             <div className="w-3/12 flex">
-                <span className="text-2xl font-bold ml-5 text-white cursor-pointer font-Roboto">Script Socials</span>
+                <Link to="/">
+                    <span className="text-2xl font-bold ml-5 text-white cursor-pointer font-Roboto">Script Socials</span>
+                </Link>
             </div>
 
             {/* topbar center */ }
             <div className="w-5/12 flex">
                 <div className="w-full h-8 rounded-3xl bg-white flex items-center space-x-2.5 px-3 py-1.5">
-                    <MdSearch className="!text-gray-500" />
+                    <MdSearch className="!text-gray-500 text-xl" />
 
-                    <input type="text" placeholder='search for friends, posts or video' className="border-0 outline-0  focus:outline-0 w-[70%]" />
+                    <input type="text" placeholder='search for friends, posts or video' className="border-0 outline-0  focus:outline-0 w-full" />
                 </div>
             </div>
 
@@ -56,9 +46,11 @@ const Topbar = () => {
                     </div>
                 </div>
 
-                <span className='h-8 w-8 rounded-full flex cursor-pointer'>
-                    <img src={ `/assets/person/${randomNumberWithinRange}.jpeg` } alt="Script Socials" className="w-full h-full rounded-full object-cover" />
-                </span>
+                <Link to="/profile">
+                    <span className='h-8 w-8 rounded-full flex cursor-pointer'>
+                        <img src="/assets/person/1.jpeg" alt="Script Socials" className="w-full h-full rounded-full object-cover" />
+                    </span>
+                </Link>
             </div>
         </div>
     )
